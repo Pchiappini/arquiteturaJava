@@ -1,0 +1,2 @@
+2;Tijolo baiano;true;10000;14x29x29;argila
+4;Tijolo bloco;true;10000;14x29x29;cimento

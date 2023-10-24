@@ -1,0 +1,4 @@
+1;Ferro para contrucao civil;true;1000;vergalhao;true;F
+2;Tijolo baiano;true;10000;14x29x29;argila;T
+4;Ferro para automoveis;true;500;Chapa;true;F
+4;Tijolo bloco;true;10000;14x29x29;cimento;T
