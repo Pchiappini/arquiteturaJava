@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infinet.appautovendas.model.domain.Ferragem;
+import br.edu.infinet.appautovendas.model.domain.Vendedor;
 import br.edu.infinet.appautovendas.model.service.FerragemService;
 
 @Order(3)
@@ -42,6 +43,12 @@ public class FerragemLoader implements ApplicationRunner{
 			ferragem.setPreco(Float.valueOf(campos[3]));
 			ferragem.setTipo(campos[4]);
 			ferragem.setNacional(Boolean.valueOf(campos[5]));
+			
+			Vendedor vendedor = new Vendedor();
+			
+			vendedor.setId(Integer.valueOf(campos[6]));
+			
+			ferragem.setVendedor(vendedor);
 			
 			System.out.println("[Ferragem]" + ferragem);
 			

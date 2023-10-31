@@ -1,5 +1,10 @@
 package br.edu.infinet.appautovendas.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TIJOLO")
 public class Tijolo extends Produto{
 		
 		

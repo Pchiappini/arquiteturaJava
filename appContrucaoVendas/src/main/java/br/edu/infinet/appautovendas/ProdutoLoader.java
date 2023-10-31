@@ -9,10 +9,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infinet.appautovendas.model.domain.Ferragem;
 import br.edu.infinet.appautovendas.model.domain.Produto;
 import br.edu.infinet.appautovendas.model.domain.Tijolo;
-import br.edu.infinet.appautovendas.model.domain.Ferragem;
+import br.edu.infinet.appautovendas.model.domain.Vendedor;
 import br.edu.infinet.appautovendas.model.service.ProdutoService;
+import br.edu.infinet.appautovendas.model.service.VendedorService;
 
 @Order(2)
 @Component
@@ -21,6 +23,9 @@ public class ProdutoLoader implements ApplicationRunner{
 	
 	@Autowired
 	private ProdutoService produtoService;
+	
+	@Autowired
+	private VendedorService vendedorService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -31,6 +36,8 @@ public class ProdutoLoader implements ApplicationRunner{
 		String linha = leitura.readLine();
 		
 		String[] campos = null;
+		
+		Vendedor vendedor = new Vendedor();
 		
 		while(linha != null) {
 			
@@ -47,6 +54,10 @@ public class ProdutoLoader implements ApplicationRunner{
 				ferragem.setPreco(Float.valueOf(campos[3]));
 				ferragem.setTipo(campos[4]);
 				ferragem.setNacional(Boolean.valueOf(campos[5]));
+								
+				vendedor.setId(Integer.valueOf(campos[7]));
+				
+				ferragem.setVendedor(vendedor);				
 				
 				produtoService.incluir(ferragem);
 				
@@ -63,6 +74,10 @@ public class ProdutoLoader implements ApplicationRunner{
 				tijolo.setTamanho(campos[4]);
 				tijolo.setTipoMaterial(campos[5]);
 
+				vendedor.setId(Integer.valueOf(campos[7]));
+				
+				tijolo.setVendedor(vendedor);
+				
 				produtoService.incluir(tijolo);
 				
 				break;
@@ -70,22 +85,29 @@ public class ProdutoLoader implements ApplicationRunner{
 			default:
 				break;
 			}
-			/*
-			Produto produto = new Produto();
-			produto.setCodigo(Integer.valueOf(campos[0]));
-		    produto.setDescricao(campos[1]);
-			produto.setEstoque(Boolean.valueOf(campos[2]));
-			produto.setPreco(Float.valueOf(campos[3]));
-			*/
-			
 			
 			linha = leitura.readLine();
 		}
-			
-			for (Produto produto: produtoService.obterLista()) {
+		
+		for(Vendedor v : vendedorService.obterLista()) {
+			for(Produto produto: produtoService.obterLista(v)) {
 				System.out.println("[Produto]" + produto);
-				
+			}
+			
+		}
+			
+/*			for (Produto produto: produtoService.obterLista()) {
+				System.out.println("[Produto]" + produto);	
 				}
+			System.out.println("Produtos do vendedor: " + vendedor.getId());
+			for(Produto produto: produtoService.obterLista(vendedor.getId())) {
+				System.out.println("[Produto]" + produto);
+			}
+			for(Produto produto: produtoService.obterLista(vendedor)) {
+				System.out.println("[Produto]" + produto);
+			}
+*/
+			
 		    leitura.close();
 		
 }

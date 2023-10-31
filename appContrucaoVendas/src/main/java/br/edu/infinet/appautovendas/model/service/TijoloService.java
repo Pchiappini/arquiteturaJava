@@ -1,21 +1,26 @@
 package br.edu.infinet.appautovendas.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.edu.infinet.appautovendas.model.domain.Tijolo;
+import br.edu.infinet.appautovendas.model.repository.TijoloRepository;
 
 @Service
 public class TijoloService {
 	
-private Map<String, Tijolo> mapaTijolo = new HashMap<String, Tijolo>(); 
-    
+	@Autowired
+	private TijoloRepository tijoloRepository;
+ 
 	public void incluir(Tijolo tijolo) {
-		mapaTijolo.put(tijolo.getDescrição(), tijolo);
+		//mapaTijolo.put(tijolo.getDescrição(), tijolo);
+		tijoloRepository.save(tijolo);
 	}   
 	
 	public Collection<Tijolo> obterLista(){
-		return mapaTijolo.values();
+		//return mapaTijolo.values();
+		return (Collection<Tijolo>) tijoloRepository.findAll();
 	}
 }

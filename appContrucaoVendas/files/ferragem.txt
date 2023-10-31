@@ -1,2 +1,2 @@
-1;Ferro para contrucao civil;true;1000;vergalhao;true
-4;Ferro para automoveis;true;500;Chapa;true
+1;Ferro para contrucao civil;true;1000;vergalhao;true;1
+4;Ferro para automoveis;true;500;Chapa;true;2

@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infinet.appautovendas.model.domain.Tijolo;
+import br.edu.infinet.appautovendas.model.domain.Vendedor;
 import br.edu.infinet.appautovendas.model.service.TijoloService;
 
 @Order(4)
@@ -41,6 +42,12 @@ public class TijoloLoader implements ApplicationRunner{
 			tijolo.setPreco(Float.valueOf(campos[3]));
 			tijolo.setTamanho(campos[4]);
 			tijolo.setTipoMaterial(campos[5]);
+			
+			Vendedor vendedor = new Vendedor();
+			
+			vendedor.setId(Integer.valueOf(campos[6]));
+			
+			tijolo.setVendedor(vendedor);
 			
 			System.out.println("[Tijolo]" + tijolo);
 			

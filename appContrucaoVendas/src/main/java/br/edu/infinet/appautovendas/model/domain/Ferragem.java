@@ -1,5 +1,10 @@
 package br.edu.infinet.appautovendas.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="FERRAGEM")
 public class Ferragem extends Produto {
 	
 	private String tipo;
