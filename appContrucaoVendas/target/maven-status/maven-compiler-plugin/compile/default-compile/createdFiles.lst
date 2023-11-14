@@ -1,0 +1,6 @@
+br\edu\infinet\appautovendas\model\domain\Vendedor.class
+br\edu\infinet\appautovendas\AppautovendasApplication.class
+br\edu\infinet\appautovendas\model\domain\Servico.class
+br\edu\infinet\appautovendas\VendedorLoader.class
+br\edu\infinet\appautovendas\model\domain\Veiculo.class
+br\edu\infinet\appautovendas\model\domain\Produto.class

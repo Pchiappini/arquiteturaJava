@@ -3,6 +3,8 @@ package br.edu.infinet.appautovendas;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -57,9 +59,17 @@ public class ProdutoLoader implements ApplicationRunner{
 								
 				vendedor.setId(Integer.valueOf(campos[7]));
 				
-				ferragem.setVendedor(vendedor);				
+				ferragem.setVendedor(vendedor);		
+								
 				
-				produtoService.incluir(ferragem);
+				try {
+					produtoService.incluir(ferragem);
+				}catch (ConstraintViolationException e ) {
+					System.out.println("[PRODUTO]: " + ferragem );
+					FileLogger.logException("[PRODUTO]: " + ferragem );
+				}
+				
+				//produtoService.incluir(ferragem);
 				
 				break;
 				
@@ -78,7 +88,13 @@ public class ProdutoLoader implements ApplicationRunner{
 				
 				tijolo.setVendedor(vendedor);
 				
-				produtoService.incluir(tijolo);
+				try {
+					produtoService.incluir(tijolo);
+				}catch (ConstraintViolationException e ) {
+					System.out.println("[PRODUTO]: " + tijolo );
+					FileLogger.logException("[PRODUTO]: " + tijolo );
+				}
+				//produtoService.incluir(tijolo);
 				
 				break;
 

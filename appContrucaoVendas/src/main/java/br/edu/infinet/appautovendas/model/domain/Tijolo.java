@@ -13,7 +13,7 @@ public class Tijolo extends Produto{
 
 		
 		public String toString() {
-			return String.format("%s - %s - %s", super.toString() ,tamanho, tipoMaterial);
+			return String.format("%s - tamanho (%s) - material (%s)", super.toString() ,tamanho, tipoMaterial);
 		}
 
 

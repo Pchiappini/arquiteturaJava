@@ -2,3 +2,4 @@
 2;Tijolo baiano;true;10000;14x29x29;argila;T;2
 4;Ferro para automoveis;true;500;Chapa;true;F;3
 4;Tijolo bloco;true;10000;14x29x29;cimento;T;4
+5;Aço para contrucao civil;true;1000;vergalhao;true;F;1

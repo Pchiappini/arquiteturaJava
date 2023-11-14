@@ -23,4 +23,7 @@ public class TijoloService {
 		//return mapaTijolo.values();
 		return (Collection<Tijolo>) tijoloRepository.findAll();
 	}
+	public long obterQtde() {
+		return tijoloRepository.count();
+	}
 }

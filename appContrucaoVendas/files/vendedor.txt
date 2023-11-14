@@ -1,4 +1,6 @@
-patricia;123654789;patricia@uol.com.br
-rafael;547896325;rafael@uol.com.br
-victor;789654123;victor@uol.com.br
-laura;357896412;laura@uol.com.br
+patricia;123.654.789-56;patricia@uol.com.br;09175360
+rafael;547.896.325-54;rafael@uol.com.br;25041040
+victor;789.654.123-99;victor@uol.com.br;13385421
+laura;357.896.412-77;laura@uol.com.br;09175360
+l;357.896.412-77;laura@uol.com.br;09175360
+victor;789.654.12399;victor@uol.com.br;09175360

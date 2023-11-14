@@ -3,12 +3,15 @@ package br.edu.infinet.appautovendas;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infinet.appautovendas.model.domain.Endereco;
 import br.edu.infinet.appautovendas.model.domain.Vendedor;
 import br.edu.infinet.appautovendas.model.service.VendedorService;
 
@@ -39,8 +42,15 @@ public class VendedorLoader implements ApplicationRunner{
 			vendedor.setNome(campos[0]);
 			vendedor.setCpf(campos[1]);
 			vendedor.setEmail(campos[2]);
+			vendedor.setEndereco(new Endereco(campos[3]));
 			
-			vendedorService.incluir(vendedor);
+			try {
+				vendedorService.incluir(vendedor);
+			}catch (ConstraintViolationException e ) {
+				System.out.println("[VENDEDOR]: " + vendedor );
+				FileLogger.logException("[VENDEDOR]: " + vendedor + " - " + e.getMessage());
+			}
+			
 						
 			linha = leitura.readLine();
 		}

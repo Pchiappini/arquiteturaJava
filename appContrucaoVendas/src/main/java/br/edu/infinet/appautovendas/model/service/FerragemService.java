@@ -23,4 +23,7 @@ public class FerragemService {
 	public Collection<Ferragem> obterLista(){
 		return (Collection<Ferragem>) ferragemRepository.findAll();
 	}
+	public long obterQtde() {
+		return ferragemRepository.count();
+	}
 }
