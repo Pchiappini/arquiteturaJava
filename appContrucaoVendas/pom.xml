@@ -12,8 +12,8 @@
 	<groupId>br.edu.infinet</groupId>
 	<artifactId>appautovendas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>appautovendas</name>
-	<description>Projeto de vendas de veículos e serviços automobilístico </description>
+	<name>appContrucaoVendas</name>
+	<description>Projeto de vendas de materiais de construção </description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
